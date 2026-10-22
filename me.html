@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ee7623" />
+    <title>My Account · HFI Course Guide</title>
+    <script type="module" crossorigin src="./assets/me-DpH9B-cZ.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/theme-bSvfed0L.js">
+    <link rel="modulepreload" crossorigin href="./assets/surveyData-Hb_AgSKH.js">
+    <link rel="modulepreload" crossorigin href="./assets/reviewRules-Csr7bLON.js">
+    <link rel="stylesheet" crossorigin href="./assets/theme-Bq_uCemh.css">
+  <script>// Added to every page's <head> by vite.config.ts, so the page is drawn in the right theme from
+// the start instead of flashing light first. Keep in step with resolveTheme() in theme.ts.
+(function () {
+  var choice = "auto";
+  try {
+    choice = localStorage.getItem("hfi-theme") || "auto";
+  } catch (error) {
+    // Storage can be blocked; automatic is fine.
+  }
+  var hour = new Date().getHours();
+  var dark = choice === "dark" || (choice === "auto" && (hour >= 19 || hour < 7));
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+})();
+</script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-bar app-bar-with-tools">
+        <div class="theme-switch" role="group" aria-label="Light or dark mode">
+          <button type="button" data-theme-choice="auto" aria-pressed="false">Auto</button>
+          <button type="button" data-theme-choice="light" aria-pressed="false">Light</button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false">Dark</button>
+        </div>
+        <p class="app-name">HFI Course Guide</p>
+        <h1>Me</h1>
+        <p class="app-bar-subtitle">Sign in with your school email to review the courses you took.</p>
+      </header>
+      <main>
+        <section id="account" aria-live="polite"><p class="muted">Loading…</p></section>
+      </main>
+      <nav class="tab-bar" aria-label="Pages" data-current="me"></nav>
+    </div>
+  </body>
+</html>

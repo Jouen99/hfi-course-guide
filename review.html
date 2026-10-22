@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ee7623" />
+    <title>Add a Review · HFI Course Guide</title>
+    <script type="module" crossorigin src="./assets/review-DsPH5Sww.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/theme-bSvfed0L.js">
+    <link rel="modulepreload" crossorigin href="./assets/reviewRules-Csr7bLON.js">
+    <link rel="stylesheet" crossorigin href="./assets/theme-Bq_uCemh.css">
+  <script>// Added to every page's <head> by vite.config.ts, so the page is drawn in the right theme from
+// the start instead of flashing light first. Keep in step with resolveTheme() in theme.ts.
+(function () {
+  var choice = "auto";
+  try {
+    choice = localStorage.getItem("hfi-theme") || "auto";
+  } catch (error) {
+    // Storage can be blocked; automatic is fine.
+  }
+  var hour = new Date().getHours();
+  var dark = choice === "dark" || (choice === "auto" && (hour >= 19 || hour < 7));
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+})();
+</script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-bar">
+        <p class="app-name">HFI Course Guide</p>
+        <h1>Add a review</h1>
+        <p class="app-bar-subtitle">Your review is anonymous. Each account can review each course once.</p>
+      </header>
+      <main>
+        <section id="review-status" aria-live="polite"></section>
+        <form id="review-form" class="quiz" novalidate hidden>
+          <label class="quiz-question">
+            <span class="question-label">Course</span>
+            <select name="course" required>
+              <option value="">Choose a course…</option>
+            </select>
+            <span class="field-error" data-error-for="course"></span>
+          </label>
+
+          <fieldset class="quiz-question">
+            <legend class="question-label">Year you took it</legend>
+              <div class="choices">
+                <label><input type="radio" name="yearTaken" value="Y9" required /> Y9</label>
+                <label><input type="radio" name="yearTaken" value="Y10" /> Y10</label>
+                <label><input type="radio" name="yearTaken" value="Y11" /> Y11</label>
+                <label><input type="radio" name="yearTaken" value="Y12" /> Y12</label>
+              </div>
+            <span class="field-error" data-error-for="yearTaken"></span>
+          </fieldset>
+
+          <label class="quiz-question">
+            <span class="question-label">Teacher</span>
+            <select name="teacherChoice" required>
+              <option value="">Choose the course first…</option>
+            </select>
+            <input name="teacherOther" type="text" autocomplete="off" placeholder="Teacher's English name" hidden />
+            <span class="field-error" data-error-for="teacher"></span>
+          </label>
+
+          <label class="quiz-question">
+            <span class="question-label">Final grade (out of 100)</span>
+            <input name="score" type="number" inputmode="decimal" min="0" max="100" step="0.5" required />
+            <span class="field-hint">Only used for averages. Your grade is never shown on its own.</span>
+            <span class="field-error" data-error-for="score"></span>
+          </label>
+
+          <fieldset class="quiz-question">
+            <legend class="question-label">Difficulty (1 = very easy, 5 = very hard)</legend>
+              <div class="choices choices-five">
+                <label><input type="radio" name="difficulty" value="1" required /> 1</label>
+                <label><input type="radio" name="difficulty" value="2" /> 2</label>
+                <label><input type="radio" name="difficulty" value="3" /> 3</label>
+                <label><input type="radio" name="difficulty" value="4" /> 4</label>
+                <label><input type="radio" name="difficulty" value="5" /> 5</label>
+              </div>
+            <span class="field-error" data-error-for="difficulty"></span>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend class="question-label">Overall rating (out of 5)</legend>
+              <div class="choices choices-five">
+                <label><input type="radio" name="rating" value="1" required /> ★ 1</label>
+                <label><input type="radio" name="rating" value="2" /> ★ 2</label>
+                <label><input type="radio" name="rating" value="3" /> ★ 3</label>
+                <label><input type="radio" name="rating" value="4" /> ★ 4</label>
+                <label><input type="radio" name="rating" value="5" /> ★ 5</label>
+              </div>
+            <span class="field-error" data-error-for="rating"></span>
+          </fieldset>
+
+          <label class="quiz-question">
+            <span class="question-label">Your review (optional)</span>
+            <textarea name="reviewText" rows="5" maxlength="2000"
+              placeholder="Be specific: workload, tests, what helped you. Reviews are checked before they appear."></textarea>
+            <span class="field-error" data-error-for="reviewText"></span>
+          </label>
+
+          <p class="form-error" id="submit-error" role="alert"></p>
+          <button type="submit">Submit review</button>
+        </form>
+      </main>
+      <nav class="tab-bar" aria-label="Pages" data-current="me"></nav>
+    </div>
+  </body>
+</html>

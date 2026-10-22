@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#ee7623" />
     <title>HFI Course Guide</title>
-    <script type="module" crossorigin src="./assets/results-BMzDrwFG.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/surveyData-BPx_RoIo.js">
-    <link rel="stylesheet" crossorigin href="./assets/surveyData-s6LpD9Wk.css">
+    <script type="module" crossorigin src="./assets/results-xO0L390E.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/theme-bSvfed0L.js">
+    <link rel="modulepreload" crossorigin href="./assets/surveyData-Hb_AgSKH.js">
+    <link rel="modulepreload" crossorigin href="./assets/reviewFooter-dKQHNiDL.js">
+    <link rel="stylesheet" crossorigin href="./assets/theme-Bq_uCemh.css">
+  <script>// Added to every page's <head> by vite.config.ts, so the page is drawn in the right theme from
+// the start instead of flashing light first. Keep in step with resolveTheme() in theme.ts.
+(function () {
+  var choice = "auto";
+  try {
+    choice = localStorage.getItem("hfi-theme") || "auto";
+  } catch (error) {
+    // Storage can be blocked; automatic is fine.
+  }
+  var hour = new Date().getHours();
+  var dark = choice === "dark" || (choice === "auto" && (hour >= 19 || hour < 7));
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+})();
+</script>
   </head>
   <body>
     <div class="app">
@@ -16,28 +32,66 @@
         <h1>Course Results</h1>
         <p class="app-bar-subtitle">Average grades, difficulty, and ratings from an anonymous HFI student survey.</p>
       </header>
+      <section class="welcome-card" id="welcome-card" aria-label="Welcome">
+        <div class="welcome-photo" role="img" aria-label="A photo of HFI taken by a student"></div>
+        <div class="welcome-text">
+          <p class="welcome-greeting" id="welcome-greeting"></p>
+          <p class="welcome-name" id="welcome-name">HFI student</p>
+        </div>
+        <p class="photo-credit" id="photo-credit"></p>
+      </section>
       <main>
-        <p class="notice">Showing made-up sample data while real survey responses are collected.</p>
         <label class="search-control">
           <span class="visually-hidden">Search courses</span>
           <input id="course-search" type="search" placeholder="Search courses, e.g. calc" autocomplete="off" />
         </label>
+        <div class="view-switch" role="group" aria-label="How to show courses">
+          <button type="button" data-view="chart" aria-pressed="true">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="15" r="3" /><circle cx="15" cy="8" r="4" /><circle cx="18" cy="17" r="2" /></svg>
+            Compare chart
+          </button>
+          <button type="button" data-view="list" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+            Course list
+          </button>
+        </div>
         <label class="sort-control">
           Sort by
           <select id="sort-select"></select>
         </label>
-        <ul id="course-list" class="course-list"></ul>
+        <div id="course-map"></div>
+        <ul id="course-list" class="course-list" hidden></ul>
+        <details class="legend" lang="zh-CN">
+          <summary lang="en">How to use</summary>
+          <h3 class="legend-heading">看懂卡片</h3>
+          <ul>
+            <li>
+              <span class="legend-swatch gpa-high">GPA</span>
+              平均 GPA（满分 5.0，HFI 每门课加 1 分）：绿色 4.5 以上，黄色 3.7–4.5，红色 3.7 以下。
+            </li>
+            <li><span class="chip chip-score">Avg score</span> 平均期末成绩（满分 100）。</li>
+            <li><span class="chip chip-easy">Difficulty</span> 难度：1 很简单，5 很难。绿色简单，黄色中等，红色难。</li>
+            <li><span class="chip chip-rating">★ 4.2</span> 综合评分（满分 5）。</li>
+            <li>
+              <span class="legend-bar"
+                ><span class="grade-segment grade-A">A</span><span class="grade-segment grade-B">B</span
+                ><span class="grade-segment grade-C">C</span><span class="grade-segment grade-D">D</span
+                ><span class="grade-segment grade-F">F</span></span
+              >
+              拿到 A、B、C、D、F 的学生各占多少。
+            </li>
+          </ul>
+          <h3 class="legend-heading">找课程</h3>
+          <ul>
+            <li><strong>Compare chart</strong>：每个圆圈是一门课。越靠左越简单，越靠上 GPA 越高。浅橙色角落里是"比平均更简单、GPA 更高"的课。</li>
+            <li><strong>Course list</strong>：每门课一张卡片，可以用 "Sort by" 排序。</li>
+            <li>点圆圈或卡片，查看成绩分布、难度、老师对比和学生评价。</li>
+            <li><strong>Recommender</strong>：选择想读的专业，看看适合上哪些 AP。</li>
+            <li><strong>Me</strong>：用 @gdhfi.com 学校邮箱登录，评价你上过的课。</li>
+          </ul>
+        </details>
       </main>
-      <nav class="tab-bar" aria-label="Pages">
-        <a href="./" aria-current="page">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg>
-          Courses
-        </a>
-        <a href="./recommend.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M15.5 8.5l-2 5-5 2 2-5z" /></svg>
-          Recommender
-        </a>
-      </nav>
+      <nav class="tab-bar" aria-label="Pages" data-current="courses"></nav>
     </div>
   </body>
 </html>

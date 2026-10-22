@@ -5,9 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#ee7623" />
     <title>HFI Course Details</title>
-    <script type="module" crossorigin src="./assets/course-D1i-BFW_.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/surveyData-BPx_RoIo.js">
-    <link rel="stylesheet" crossorigin href="./assets/surveyData-s6LpD9Wk.css">
+    <script type="module" crossorigin src="./assets/course-Un_YL50V.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/theme-bSvfed0L.js">
+    <link rel="modulepreload" crossorigin href="./assets/surveyData-Hb_AgSKH.js">
+    <link rel="modulepreload" crossorigin href="./assets/reviewFooter-dKQHNiDL.js">
+    <link rel="stylesheet" crossorigin href="./assets/theme-Bq_uCemh.css">
+  <script>// Added to every page's <head> by vite.config.ts, so the page is drawn in the right theme from
+// the start instead of flashing light first. Keep in step with resolveTheme() in theme.ts.
+(function () {
+  var choice = "auto";
+  try {
+    choice = localStorage.getItem("hfi-theme") || "auto";
+  } catch (error) {
+    // Storage can be blocked; automatic is fine.
+  }
+  var hour = new Date().getHours();
+  var dark = choice === "dark" || (choice === "auto" && (hour >= 19 || hour < 7));
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+})();
+</script>
   </head>
   <body>
     <div class="app">
@@ -17,16 +33,7 @@
         <p class="app-bar-subtitle" id="course-subtitle"></p>
       </header>
       <main id="course-details"></main>
-      <nav class="tab-bar" aria-label="Pages">
-        <a href="./" aria-current="page">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg>
-          Courses
-        </a>
-        <a href="./recommend.html">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M15.5 8.5l-2 5-5 2 2-5z" /></svg>
-          Recommender
-        </a>
-      </nav>
+      <nav class="tab-bar" aria-label="Pages" data-current="courses"></nav>
     </div>
   </body>
 </html>
