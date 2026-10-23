@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#ee7623" />
     <title>使用指南 · HFI Course Guide</title>
-    <script type="module" crossorigin src="./assets/theme-Be-lJOYw.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/theme-ebS0E2ZN.css">
+    <script type="module" crossorigin src="./assets/theme-8sur17RA.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/theme-Cj5QmETl.css">
   <script>// Added to every page's <head> by vite.config.ts, so the page is drawn in the right theme from
 // the start instead of flashing light first. Keep in step with resolveTheme() in theme.ts.
 (function () {
@@ -36,6 +36,7 @@
             <li><a href="#home">首页：Courses</a></li>
             <li><a href="#chart">Compare chart</a></li>
             <li><a href="#list">Course list</a></li>
+            <li><a href="#compare">对比课程：Compare</a></li>
             <li><a href="#course">课程详情页</a></li>
             <li><a href="#recommender">Recommender</a></li>
             <li><a href="#review">写评价：Me</a></li>
@@ -59,33 +60,48 @@
         <section class="guide-section" id="chart">
           <h2>2. Compare chart（所有课程一张图）</h2>
           <figure>
-            <img src="./guide/chart.jpg" alt="气泡图：每个圆点是一门课" width="375" height="310" />
+            <img src="./guide/chart.jpg" alt="气泡图：点了 AP Chemistry 后，上方显示名称，下方显示信息" width="375" height="490" />
           </figure>
           <ul>
-            <li><strong>每个圆点是一门课</strong>，旁边写着课程简称。</li>
+            <li><strong>每个圆点是一门课</strong>。为了不显得乱，平时不显示课程名。</li>
             <li><strong>左右 = 难度</strong>：越靠左越简单，越靠右越难。</li>
             <li><strong>上下 = 平均 GPA</strong>：越靠上 GPA 越高（满分 5.0）。</li>
             <li><strong>颜色 = 科目</strong>，见图上方的颜色说明；<strong>圆点越大，评价越多</strong>，数据越可靠。</li>
             <li>两条橙色虚线是所有课程的平均难度和平均 GPA。左上角的<strong>浅橙色区域</strong>是"比平均更简单、GPA 又更高"的课。</li>
-            <li><strong>点一下圆点</strong>就能打开这门课的详情页。</li>
+            <li><strong>点一下圆点</strong>：上方会出现课程名，图下方显示这门课的 GPA、难度和评价数量（电脑上把鼠标移上去也可以）。</li>
+            <li><strong>再点一下</strong>同一个圆点，或者点 <strong>Open ›</strong>，打开这门课的详情页；点 <strong>+ Compare</strong> 把它加入对比。</li>
           </ul>
         </section>
 
         <section class="guide-section" id="list">
           <h2>3. Course list（课程卡片）</h2>
           <figure>
-            <img src="./guide/list.jpg" alt="课程卡片：左边 GPA 方块，右边平均分、难度和评分" width="375" height="320" />
+            <img src="./guide/list.jpg" alt="课程卡片：左边 GPA 方块，右边平均分、难度、评分和 + Compare 按钮" width="375" height="305" />
           </figure>
           <ul>
             <li>左边的方块是<strong>平均 GPA</strong>：绿色 4.5 以上，黄色 3.7–4.5，红色 3.7 以下。</li>
             <li><strong>Avg score</strong> 是平均期末成绩（满分 100）；<strong>Difficulty</strong> 是难度（1 很简单，5 很难）；<strong>★</strong> 是综合评分（满分 5）。</li>
             <li>彩色长条显示拿到 A、B、C、D、F 的同学各占多少。</li>
             <li>用 <strong>Sort by</strong> 排序，比如 "Easiest first" 把最简单的课排在最前面。点卡片进入详情页。</li>
+            <li>点 <strong>+ Compare</strong> 把这门课加入对比（见下一节）。</li>
           </ul>
         </section>
 
+        <section class="guide-section" id="compare">
+          <h2>4. 对比课程：Compare</h2>
+          <figure>
+            <img src="./guide/compare.jpg" alt="对比页：三门课并排比较，每行最好的一格是绿色" width="375" height="475" />
+          </figure>
+          <ol>
+            <li>在课程卡片或气泡图里点 <strong>+ Compare</strong>，最多选 <strong>3 门课</strong>。选中后按钮会变成橙色的 "✓ Comparing"。</li>
+            <li>屏幕底部会出现一条深色的栏，点 <strong>Compare ›</strong> 打开对比页；点 <strong>Clear</strong> 全部清空。</li>
+            <li>对比页里每门课一列，每一行比较一项。<strong>绿色的格子是这一行最好的</strong>：GPA、平均分、评分、评价数量越高越好，难度越低越好。</li>
+            <li>点课程名进入详情页，点 <strong>×</strong> 去掉这门课。对比页的链接可以直接发给朋友。</li>
+          </ol>
+        </section>
+
         <section class="guide-section" id="course">
-          <h2>4. 课程详情页</h2>
+          <h2>5. 课程详情页</h2>
           <figure>
             <img src="./guide/course.jpg" alt="课程详情：总览、成绩、难度和评分分布，以及老师对比" width="375" height="655" />
           </figure>
@@ -104,7 +120,7 @@
         </section>
 
         <section class="guide-section" id="recommender">
-          <h2>5. Recommender（AP 推荐）</h2>
+          <h2>6. Recommender（AP 推荐）</h2>
           <figure>
             <img src="./guide/recommender-form.jpg" alt="推荐器问卷：年级和工作量" width="375" height="440" />
           </figure>
@@ -125,7 +141,7 @@
         </section>
 
         <section class="guide-section" id="review">
-          <h2>6. 写评价：Me</h2>
+          <h2>7. 写评价：Me</h2>
           <figure>
             <img src="./guide/sign-in.jpg" alt="Me 页面：用学校邮箱登录" width="375" height="440" />
           </figure>
@@ -140,7 +156,7 @@
         </section>
 
         <section class="guide-section" id="privacy">
-          <h2>7. 隐私与审核</h2>
+          <h2>8. 隐私与审核</h2>
           <ul>
             <li>App 只显示<strong>平均值</strong>，永远不会显示任何一个人的分数。</li>
             <li>邮箱只用来保证一人一个账号，<strong>不会和你的评价存在一起</strong>，谁也看不到是谁写的。</li>
