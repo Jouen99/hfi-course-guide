@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ee7623" />
+    <title>使用指南 · HFI Course Guide</title>
+    <script type="module" crossorigin src="./assets/theme-Be-lJOYw.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/theme-ebS0E2ZN.css">
+  <script>// Added to every page's <head> by vite.config.ts, so the page is drawn in the right theme from
+// the start instead of flashing light first. Keep in step with resolveTheme() in theme.ts.
+(function () {
+  var choice = "auto";
+  try {
+    choice = localStorage.getItem("hfi-theme") || "auto";
+  } catch (error) {
+    // Storage can be blocked; automatic is fine.
+  }
+  var hour = new Date().getHours();
+  var dark = choice === "dark" || (choice === "auto" && (hour >= 19 || hour < 7));
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+})();
+</script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-bar">
+        <a class="back-link" href="./me.html">‹ Me</a>
+        <h1>使用指南</h1>
+        <p class="app-bar-subtitle">一步一步教你使用 HFI Course Guide app。</p>
+      </header>
+      <main class="guide">
+        <nav class="guide-contents" aria-label="目录">
+          <p class="guide-contents-title">目录</p>
+          <ol>
+            <li><a href="#home">首页：Courses</a></li>
+            <li><a href="#chart">Compare chart</a></li>
+            <li><a href="#list">Course list</a></li>
+            <li><a href="#course">课程详情页</a></li>
+            <li><a href="#recommender">Recommender</a></li>
+            <li><a href="#review">写评价：Me</a></li>
+            <li><a href="#privacy">隐私与审核</a></li>
+          </ol>
+        </nav>
+
+        <section class="guide-section" id="home">
+          <h2>1. 首页：Courses</h2>
+          <figure>
+            <img src="./guide/home.jpg" alt="首页：顶部是每日照片和问候语，下面是搜索框" width="375" height="475" />
+          </figure>
+          <ul>
+            <li>顶部的照片是同学投稿的 HFI 照片，<strong>每天换一张</strong>，右下角是拍摄者。</li>
+            <li>问候语会按时间变化；登录后会显示你的名字。</li>
+            <li>在 <strong>Search courses</strong> 里输入课程名就能筛选，例如输入 "calc" 找到微积分。</li>
+            <li>下面可以在 <strong>Compare chart</strong> 和 <strong>Course list</strong> 两种显示方式之间切换。</li>
+          </ul>
+        </section>
+
+        <section class="guide-section" id="chart">
+          <h2>2. Compare chart（所有课程一张图）</h2>
+          <figure>
+            <img src="./guide/chart.jpg" alt="气泡图：每个圆点是一门课" width="375" height="310" />
+          </figure>
+          <ul>
+            <li><strong>每个圆点是一门课</strong>，旁边写着课程简称。</li>
+            <li><strong>左右 = 难度</strong>：越靠左越简单，越靠右越难。</li>
+            <li><strong>上下 = 平均 GPA</strong>：越靠上 GPA 越高（满分 5.0）。</li>
+            <li><strong>颜色 = 科目</strong>，见图上方的颜色说明；<strong>圆点越大，评价越多</strong>，数据越可靠。</li>
+            <li>两条橙色虚线是所有课程的平均难度和平均 GPA。左上角的<strong>浅橙色区域</strong>是"比平均更简单、GPA 又更高"的课。</li>
+            <li><strong>点一下圆点</strong>就能打开这门课的详情页。</li>
+          </ul>
+        </section>
+
+        <section class="guide-section" id="list">
+          <h2>3. Course list（课程卡片）</h2>
+          <figure>
+            <img src="./guide/list.jpg" alt="课程卡片：左边 GPA 方块，右边平均分、难度和评分" width="375" height="320" />
+          </figure>
+          <ul>
+            <li>左边的方块是<strong>平均 GPA</strong>：绿色 4.5 以上，黄色 3.7–4.5，红色 3.7 以下。</li>
+            <li><strong>Avg score</strong> 是平均期末成绩（满分 100）；<strong>Difficulty</strong> 是难度（1 很简单，5 很难）；<strong>★</strong> 是综合评分（满分 5）。</li>
+            <li>彩色长条显示拿到 A、B、C、D、F 的同学各占多少。</li>
+            <li>用 <strong>Sort by</strong> 排序，比如 "Easiest first" 把最简单的课排在最前面。点卡片进入详情页。</li>
+          </ul>
+        </section>
+
+        <section class="guide-section" id="course">
+          <h2>4. 课程详情页</h2>
+          <figure>
+            <img src="./guide/course.jpg" alt="课程详情：总览、成绩、难度和评分分布，以及老师对比" width="375" height="655" />
+          </figure>
+          <ul>
+            <li>最上面是这门课的<strong>平均 GPA、平均分、难度和评分</strong>。</li>
+            <li><strong>How students did</strong>：三个小图显示成绩、难度、评分的分布。橙色的柱子是选的人最多的。</li>
+            <li><strong>By teacher</strong>：每位老师学生的平均 GPA；"+0.00" 表示比这门课的平均高或低多少。</li>
+          </ul>
+          <figure>
+            <img src="./guide/reviews.jpg" alt="学生评价卡片" width="375" height="360" />
+          </figure>
+          <ul>
+            <li><strong>Student reviews</strong>：同学写的文字评价，左边是他们给的评分和难度。</li>
+            <li>页面最下面的 <strong>Review this course →</strong> 可以直接评价这门课。</li>
+          </ul>
+        </section>
+
+        <section class="guide-section" id="recommender">
+          <h2>5. Recommender（AP 推荐）</h2>
+          <figure>
+            <img src="./guide/recommender-form.jpg" alt="推荐器问卷：年级和工作量" width="375" height="440" />
+          </figure>
+          <ol>
+            <li>选择你<strong>大学想读的专业</strong>。</li>
+            <li>选择你<strong>现在的年级</strong>。Y9、Y10 的同学会看到 Y11–Y12 的选课计划。</li>
+            <li>选择<strong>工作量</strong>：Manageable 会推荐轻松一点的课（比如用 Physics 2 代替 Physics C）。</li>
+            <li>点 <strong>Show my recommendations</strong>。</li>
+          </ol>
+          <figure>
+            <img src="./guide/recommender-results.jpg" alt="推荐结果：必修英语和推荐的 AP 课" width="375" height="625" />
+          </figure>
+          <ul>
+            <li><strong>Required English</strong>：学校规定必须上的英语课。</li>
+            <li><strong>Offered at HFI</strong> 是学校开的课，下面有同学们的评分；<strong>Self-study</strong> 是学校不开、需要自学的课，下面有学习资源链接。</li>
+            <li>大多数同学每年在学校上 3–4 门 AP，挑最适合你的就好。</li>
+          </ul>
+        </section>
+
+        <section class="guide-section" id="review">
+          <h2>6. 写评价：Me</h2>
+          <figure>
+            <img src="./guide/sign-in.jpg" alt="Me 页面：用学校邮箱登录" width="375" height="440" />
+          </figure>
+          <ol>
+            <li>点底部的 <strong>Me</strong>，输入你的 <strong>@gdhfi.com</strong> 学校邮箱，点 <strong>Send code</strong>。</li>
+            <li>去学校邮箱收验证码（没收到的话看看垃圾邮件），填进去点 <strong>Sign in</strong>。只需要登录一次。</li>
+            <li>点 <strong>Add a review</strong>，选课程、年级、老师，填成绩、难度、评分，也可以写几句评价。</li>
+            <li>每门课只能评价一次。Me 页面会列出你评价过的课。</li>
+          </ol>
+          <p class="guide-note">已经毕业、不能用学校邮箱？在 Me 页面点问卷链接填写。</p>
+          <p class="guide-note">右上角的 <strong>Auto / Light / Dark</strong> 可以切换白天、黑暗模式；Auto 会在晚上 7 点到早上 7 点自动变暗。</p>
+        </section>
+
+        <section class="guide-section" id="privacy">
+          <h2>7. 隐私与审核</h2>
+          <ul>
+            <li>App 只显示<strong>平均值</strong>，永远不会显示任何一个人的分数。</li>
+            <li>邮箱只用来保证一人一个账号，<strong>不会和你的评价存在一起</strong>，谁也看不到是谁写的。</li>
+            <li>所有评价都要<strong>经过审核</strong>才会显示，一般一周以内，这样可以防止有人恶意刷分。</li>
+          </ul>
+        </section>
+      </main>
+      <nav class="tab-bar" aria-label="Pages" data-current="me"></nav>
+    </div>
+  </body>
+</html>
