@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ee7623" />
+    <title>Review Queue · HFI Course Guide</title>
+    <script type="module" crossorigin src="./assets/admin-DUsalUbJ.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/theme-DIWjQuDL.js">
+    <link rel="modulepreload" crossorigin href="./assets/supabaseClient-BKWiv3p1.js">
+    <link rel="stylesheet" crossorigin href="./assets/theme-ChTaCkXK.css">
+  <script>// Added to every page's <head> by vite.config.ts, so the page is drawn in the right theme from
+// the start instead of flashing light first. Keep in step with resolveTheme() in theme.ts.
+(function () {
+  var choice = "auto";
+  try {
+    choice = localStorage.getItem("hfi-theme") || "auto";
+  } catch (error) {
+    // Storage can be blocked; automatic is fine.
+  }
+  var hour = new Date().getHours();
+  var dark = choice === "dark" || (choice === "auto" && (hour >= 19 || hour < 7));
+  document.documentElement.dataset.theme = dark ? "dark" : "light";
+})();
+</script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-bar">
+        <a class="back-link" href="./me.html">‹ Me</a>
+        <h1>Review queue</h1>
+        <p class="app-bar-subtitle">Approve reviews to show them in the app, oldest first.</p>
+      </header>
+      <main id="review-queue" aria-live="polite"><p class="muted">Loading…</p></main>
+      <nav class="tab-bar" aria-label="Pages" data-current="me"></nav>
+    </div>
+  </body>
+</html>
